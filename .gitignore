@@ -1,0 +1,14 @@
+# 密钥与本地配置（严禁提交）
+.env
+.env.local
+
+# 依赖与产物
+node_modules/
+vendor/tesseract/best/
+tests/out-*.json
+api-calls.log
+server-error.log
+
+# 系统文件
+Thumbs.db
+.DS_Store

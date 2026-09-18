@@ -1,0 +1,112 @@
+﻿2026-09-16 13:43:38 analyze status=429 tries=3 model=glm-4.7-flash ms=18968
+2026-09-16 13:46:53 analyze status=429 tries=3 model=glm-4.7-flash ms=98260
+2026-09-16 14:00:41 ocr status=429 model=glm-4.6v-flash ms=1006
+2026-09-16 14:00:56 ocr status=429 model=glm-4.6v-flash ms=110
+2026-09-16 14:01:18 ocr status=429 model=glm-4.6v-flash ms=97
+2026-09-16 14:01:33 ocr status=429 model=glm-4.6v-flash ms=65
+2026-09-16 14:01:58 ocr status=429 model=glm-4.6v-flash ms=94
+2026-09-16 14:02:34 ocr status=429 model=glm-4.6v-flash ms=60
+2026-09-16 14:03:18 ocr status=200 model=glm-4.6v-flash ms=14341
+2026-09-16 14:05:16 analyze status=429 tries=3 model=glm-4.7-flash ms=98263
+2026-09-16 14:10:42 ocr status=429 model=glm-4.6v-flash ms=284
+2026-09-16 14:10:57 ocr status=429 model=glm-4.6v-flash ms=101
+2026-09-16 14:12:05 ocr status=429 model=glm-4.6v-flash ms=88
+2026-09-16 14:12:21 ocr status=429 model=glm-4.6v-flash ms=85
+2026-09-16 14:13:07 ocr status=200 model=glm-4.6v-flash ms=20870
+2026-09-16 14:13:51 analyze status=429 tries=3 model=glm-4.7-flash ms=18338
+2026-09-16 14:52:33 regen-cbt status=200 tries=2 model=glm-4.7-flash ms=32818
+2026-09-16 14:54:02 regen-reply kind=gentle status=200 tries=1 model=glm-4.7-flash ms=3938
+2026-09-16 14:55:26 regen-reply kind=gentle status=200 tries=2 model=glm-4.7-flash ms=9225
+2026-09-16 14:57:15 regen-reply kind=gentle status=200 tries=3 model=glm-4.7-flash ms=21399
+2026-09-16 14:57:15 regen-reply EMPTY content, body_len=891
+2026-09-16 14:59:21 regen-reply kind=gentle status=200 tries=1 model=glm-4.7-flash ms=22648
+2026-09-16 15:00:09 regen-reply kind=gentle status=429 tries=3 model=glm-4.7-flash ms=18337
+2026-09-16 15:02:11 regen-cbt status=200 tries=3 model=glm-4.7-flash ms=48661
+2026-09-16 15:04:09 analyze status=429 tries=3 model=glm-4.7-flash ms=18327
+2026-09-16 15:05:39 ocr status=429 model=glm-4.6v-flash ms=144
+2026-09-16 15:05:55 ocr status=429 model=glm-4.6v-flash ms=91
+2026-09-16 15:06:03 ocr status=429 model=glm-4.6v-flash ms=111
+2026-09-16 15:06:19 ocr status=429 model=glm-4.6v-flash ms=78
+2026-09-16 15:06:45 ocr status=429 model=glm-4.6v-flash ms=110
+2026-09-16 15:07:21 ocr status=429 model=glm-4.6v-flash ms=128
+2026-09-16 15:09:31 analyze status=502 tries=3 model=glm-4.7-flash ms=58361
+2026-09-16 15:10:04 regen-reply kind=gentle status=429 tries=3 model=glm-4.7-flash ms=18359
+2026-09-16 15:10:42 regen-reply kind=gentle status=429 tries=3 model=glm-4.7-flash ms=18310
+2026-09-16 15:11:36 regen-cbt status=200 tries=1 model=glm-4.7-flash ms=44521
+2026-09-16 15:28:57 regen-actions status=429 tries=3 model=glm-4.7-flash ms=58796
+2026-09-16 15:29:57 regen-actions status=429 tries=3 model=glm-4.7-flash ms=58259
+2026-09-16 15:32:29 analyze status=429 tries=3 model=glm-4.7-flash ms=18489
+2026-09-16 15:33:33 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18415
+2026-09-16 15:33:39 regen-reply kind=gentle status=429 tries=3 model=glm-4.7-flash ms=48261
+2026-09-16 15:33:57 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18330
+2026-09-16 15:35:45 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18288
+2026-09-16 15:36:11 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18297
+2026-09-16 15:58:23 analyze status=200 tries=2 model=glm-4.7-flash ms=34923
+2026-09-16 16:14:25 analyze status=429 tries=3 model=glm-4.7-flash ms=58799
+2026-09-16 16:15:53 analyze status=429 tries=3 model=glm-4.7-flash ms=58245
+2026-09-16 16:44:56 analyze status=429 tries=3 model=glm-4.7-flash ms=58273
+2026-09-16 18:38:16 ocr status=429 model=glm-4.6v-flash ms=377
+2026-09-16 18:38:32 ocr status=429 model=glm-4.6v-flash ms=88
+2026-09-16 18:38:57 ocr status=429 model=glm-4.6v-flash ms=57
+2026-09-16 18:39:32 ocr status=429 model=glm-4.6v-flash ms=77
+2026-09-16 18:40:37 ocr status=429 model=glm-4.6v-flash ms=94
+2026-09-16 18:41:05 ocr status=200 model=glm-4.6v-flash ms=13209
+2026-09-16 18:42:35 ocr status=429 model=glm-4.6v-flash ms=261
+2026-09-16 18:42:51 ocr status=429 model=glm-4.6v-flash ms=67
+2026-09-16 18:43:01 analyze status=429 tries=3 model=glm-4.7-flash ms=58247
+2026-09-16 18:43:17 ocr status=429 model=glm-4.6v-flash ms=124
+2026-09-16 18:43:53 ocr status=429 model=glm-4.6v-flash ms=59
+2026-09-16 18:45:21 ocr status=429 model=glm-4.6v-flash ms=138
+2026-09-16 18:45:53 ocr status=200 model=glm-4.6v-flash ms=17141
+2026-09-16 18:46:22 ocr status=429 model=glm-4.6v-flash ms=81
+2026-09-16 18:46:37 ocr status=429 model=glm-4.6v-flash ms=79
+2026-09-16 18:47:11 ocr status=200 model=glm-4.6v-flash ms=8450
+2026-09-16 18:49:53 analyze status=429 tries=3 model=glm-4.7-flash ms=58307
+2026-09-16 18:57:46 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18296
+2026-09-16 18:58:20 regen-cbt status=429 tries=3 model=glm-4.7-flash ms=78213
+2026-09-16 18:59:23 regen-cbt status=200 tries=1 model=glm-4.7-flash ms=50217
+2026-09-16 19:02:12 regen-actions status=429 tries=3 model=glm-4.7-flash ms=18294
+2026-09-16 19:04:05 analyze status=502 tries=3 model=glm-4.7-flash ms=58169
+2026-09-16 22:45:58 analyze status=401 tries=1 model=agnes-2.0-flash ms=2674
+2026-09-16 22:46:26 analyze status=401 tries=1 model=agnes-2.0-flash ms=535
+2026-09-16 23:07:07 ocr status=401 model=agnes-2.0-flash ms=1351
+2026-09-16 23:07:15 ocr status=401 model=agnes-2.0-flash ms=195
+2026-09-16 23:07:53 analyze status=401 tries=1 model=agnes-2.0-flash ms=146
+2026-09-16 23:13:58 analyze status=401 tries=1 model=agnes-2.5-flash ms=1140
+2026-09-16 23:14:37 analyze status=401 tries=1 model=agnes-2.5-flash ms=233
+2026-09-16 23:38:23 analyze status=200 tries=1 model=agnes-3.0-flash ms=14772
+2026-09-16 23:39:18 analyze status=200 tries=1 model=agnes-3.0-flash ms=27820
+2026-09-16 23:41:25 analyze status=200 tries=1 model=agnes-3.0-flash ms=30377
+2026-09-16 23:42:40 regen-reply kind=gentle status=200 tries=1 model=agnes-3.0-flash ms=559
+2026-09-16 23:43:49 ocr status=200 model=agnes-3.0-flash ms=1941
+2026-09-16 23:44:21 regen-actions status=200 tries=1 model=agnes-3.0-flash ms=1824
+2026-09-17 00:06:17 ocr status=200 model=agnes-3.0-flash ms=2479
+2026-09-17 00:08:47 ocr status=200 model=agnes-3.0-flash ms=4080
+2026-09-17 00:09:19 analyze status=502 tries=3 model=agnes-3.0-flash ms=138145
+2026-09-17 00:12:42 analyze status=200 tries=1 model=agnes-3.0-flash ms=32842
+2026-09-17 00:22:20 analyze status=200 tries=1 model=agnes-3.0-flash ms=9585
+2026-09-17 00:23:16 ocr status=200 model=agnes-3.0-flash ms=2406
+2026-09-17 00:23:36 ocr status=200 model=agnes-3.0-flash ms=1545
+2026-09-17 00:23:54 ocr status=200 model=agnes-3.0-flash ms=1744
+2026-09-17 00:24:09 ocr status=200 model=agnes-3.0-flash ms=2328
+2026-09-17 00:24:10 analyze status=200 tries=1 model=agnes-3.0-flash ms=23069
+2026-09-17 00:24:14 ocr status=200 model=agnes-3.0-flash ms=2419
+2026-09-17 00:24:40 analyze status=200 tries=1 model=agnes-3.0-flash ms=10297
+2026-09-17 00:28:02 analyze status=502 tries=3 model=agnes-3.0-flash ms=24421 err=无法连接云端 AI 服务（502 网络异常）：请检查本机网络与 .env 中 AI_BASE_URL：Unable to connect to the remote server
+2026-09-17 00:29:41 analyze status=200 tries=1 model=agnes-3.0-flash ms=25684 err=
+2026-09-17 00:30:04 analyze status=200 tries=1 model=agnes-3.0-flash ms=22766 err=
+2026-09-17 00:31:32 analyze status=200 tries=1 model=agnes-3.0-flash ms=41664 err=
+2026-09-17 00:31:42 regen-reply kind=gentle status=200 tries=1 model=agnes-3.0-flash ms=1901
+2026-09-17 00:34:17 ocr status=200 model=agnes-3.0-flash ms=2074
+2026-09-17 00:34:39 ocr status=200 model=agnes-3.0-flash ms=1715
+2026-09-17 00:35:40 analyze status=200 tries=1 model=agnes-3.0-flash ms=20207 err=
+2026-09-17 00:36:15 ocr status=200 model=agnes-3.0-flash ms=12760
+2026-09-17 00:36:34 ocr status=200 model=agnes-3.0-flash ms=1936
+2026-09-17 00:37:27 ocr status=200 model=agnes-3.0-flash ms=1477
+2026-09-17 00:38:22 ocr status=200 model=agnes-3.0-flash ms=3527
+2026-09-17 00:38:39 ocr status=200 model=agnes-3.0-flash ms=3488
+2026-09-17 00:38:58 ocr status=200 model=agnes-3.0-flash ms=2312
+2026-09-17 00:39:29 ocr status=200 model=agnes-3.0-flash ms=1536
+2026-09-17 00:40:09 analyze status=200 tries=1 model=agnes-3.0-flash ms=22701 err=
+2026-09-17 00:40:13 analyze status=200 tries=1 model=agnes-3.0-flash ms=23791 err=
+2026-09-17 00:44:05 regen-actions status=200 tries=1 model=agnes-3.0-flash ms=3177

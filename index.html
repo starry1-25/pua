@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f5f6f4">
+<title>情绪显微镜 · 聊天记录关系分析</title>
+<meta name="description" content="粘贴一段聊天记录，用数据和证据看清情绪内耗，获得边界策略与 CBT 自助工具。">
+<link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">情绪显微镜</span>
+    </div>
+    <button class="icon-btn" id="privacyEntry" title="隐私说明" aria-label="隐私说明">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 1l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V4l8-3zm0 2.2L5.5 5.6v4.5c0 4.1 2.7 7.7 6.5 9.1 3.8-1.4 6.5-5 6.5-9.1V5.6L12 3.2zM11 10h2v7h-2v-7zm0-4h2v2.2h-2V6z"/></svg>
+    </button>
+  </header>
+
+  <main class="pages">
+
+    <!-- ============ 首页 / 输入页 ============ -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <h1>粘贴让你内耗的聊天记录</h1>
+        <p class="hero-sub">用原文证据与数据，冷静看清关系中的不对等。<br>不灌鸡汤 · 不贴标签 · 不给诊断</p>
+        <a class="proc-entry" href="processor.html">▣ 有截图？打开聊天记录处理台（图片识别 / 多端录入 / 电话拨打）→</a>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label class="field-label">场景</label>
+          <div class="chips" data-group="scene">
+            <button class="chip selected" data-value="恋爱">恋爱</button>
+            <button class="chip" data-value="职场">职场</button>
+            <button class="chip" data-value="家庭">家庭</button>
+            <button class="chip" data-value="朋友">朋友</button>
+            <button class="chip" data-value="其他">其他</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">关系</label>
+          <div class="chips" data-group="relation">
+            <button class="chip selected" data-value="恋人">恋人</button>
+            <button class="chip" data-value="暧昧">暧昧</button>
+            <button class="chip" data-value="上下级">上下级</button>
+            <button class="chip" data-value="同事">同事</button>
+            <button class="chip" data-value="家人">家人</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">你的目标</label>
+          <div class="chips" data-group="goal">
+            <button class="chip selected" data-value="想确认是否内耗">想确认是否内耗</button>
+            <button class="chip" data-value="想沟通">想沟通</button>
+            <button class="chip" data-value="想反击">想反击</button>
+            <button class="chip" data-value="想离开">想离开</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field-head">
+          <label class="field-label" for="chatInput">聊天记录</label>
+          <span class="field-hint">支持「我：」「对方：」格式，带时间戳可算回复延迟</span>
+        </div>
+        <textarea id="chatInput" class="chat-input" rows="12"
+          placeholder="示例：&#10;[21:03] 我：你怎么一直不回我&#10;[21:40] 对方：忙&#10;我：那你忙完能不能说一声&#10;对方：再说吧"></textarea>
+        <div class="input-toolbar">
+          <button class="text-btn" id="btnSample">填入示例记录</button>
+          <button class="text-btn" id="btnDesensitize">一键脱敏</button>
+          <button class="text-btn danger-text" id="btnClearInput">清空</button>
+        </div>
+        <div class="privacy-warn hidden" id="privacyWarn">
+          <div class="warn-title">检测到可能的隐私信息（<span id="privacyCount">0</span> 处）</div>
+          <div class="warn-desc" id="privacyDetail"></div>
+          <div class="warn-actions">
+            <button class="mini-btn primary" id="btnMaskNow">立即脱敏</button>
+            <button class="mini-btn" id="btnIgnoreWarn">我已知晓，继续</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field-head">
+          <label class="field-label" for="bgInput">补充背景（可选）</label>
+          <span class="field-hint"><span id="bgCount">0</span>/500</span>
+        </div>
+        <textarea id="bgInput" class="chat-input small" rows="3" maxlength="500"
+          placeholder="如：交往 8 个月，最近两周经常已读不回，不写姓名与公司信息"></textarea>
+      </div>
+
+      <div class="notice-bar">
+        提交前请删除姓名、电话、地址、公司名、身份证号等隐私。所有分析在你的浏览器本地完成。
+      </div>
+
+      <div class="cta-wrap">
+        <button class="btn primary big" id="btnAnalyze">开始显微镜分析</button>
+        <button class="btn ghost" id="btnAnonymous">匿名体验一次（结果不保存）</button>
+      </div>
+    </section>
+
+    <!-- ============ 分析结果页 ============ -->
+    <section class="page" id="page-result">
+      <button class="back-btn" id="btnBackHome">&larr; 返回重新输入</button>
+
+      <!-- 结论卡 -->
+      <div class="card conclusion-card" id="conclusionCard">
+        <div class="risk-row">
+          <span class="risk-badge" id="riskBadge">风险：中</span>
+          <span class="sample-tag hidden" id="sampleTag">样本不足 · 倾向判断</span>
+        </div>
+        <p class="conclusion-text" id="conclusionText"></p>
+        <div class="engine-source" id="engineSource"></div>
+        <div class="cloud-fallback hidden" id="cloudFallback">
+          <div class="cloud-fallback-text">
+            <b>云端 AI 解读暂不可用</b><span id="cloudFallbackReason"></span>——下面的回复话术、CBT 与行动清单是本机规则按原文生成的备用内容（不同原文内容不同），不是 Agnes AI 的深度解读。
+          </div>
+          <button class="mini-btn" id="btnRetryCloud">重新调用云端生成</button>
+        </div>
+        <div class="score-ring-wrap">
+          <svg class="score-ring" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-center">
+            <span class="ring-num" id="scoreNum">0</span>
+            <span class="ring-label">不对等指数</span>
+          </div>
+        </div>
+        <p class="score-note" id="scoreNote"></p>
+      </div>
+
+      <!-- 关键数据 -->
+      <div class="stat-grid" id="statGrid"></div>
+
+      <!-- Tab 栏 -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="portrait">情绪画像</button>
+        <button class="tab" data-tab="reply">回复话术</button>
+        <button class="tab" data-tab="cbt">CBT 急救</button>
+      </div>
+
+      <!-- Tab: 情绪画像 -->
+      <div class="tab-panel active" id="tab-portrait">
+        <h3 class="section-title">情绪画像</h3>
+        <div id="tagList" class="tag-list"></div>
+
+        <h3 class="section-title">数据可视化</h3>
+        <div class="card" id="chartCard"></div>
+
+        <div class="notice-bar" id="calcDetail"></div>
+      </div>
+
+      <!-- Tab: 回复话术 -->
+      <div class="tab-panel" id="tab-reply">
+        <div class="reply-safety">发送前请确认安全。若对方有暴力倾向，优先保护自己，不建议激化冲突。</div>
+        <div id="replyList"></div>
+      </div>
+
+      <!-- Tab: CBT -->
+      <div class="tab-panel" id="tab-cbt">
+        <h3 class="section-title">CBT 情绪急救包</h3>
+        <div class="card cbt-card" id="cbtCard"></div>
+        <h3 class="section-title">今日不内耗行动清单</h3>
+        <div class="card">
+          <div class="cbt-regen-bar">
+            <button class="mini-btn cbt-regen-btn" id="btnActionsRegen">重新生成行动清单</button>
+            <span class="cbt-regen-hint">每次调用 Agnes AI 基于原文重新分析，输出全新行动建议</span>
+          </div>
+          <ul class="action-list" id="actionList"></ul>
+          <p class="action-count">今日已完成 <b id="actionDone">0</b> 项 · <span id="actionPraise">先勾选第一项开始</span></p>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn ghost small" id="btnSaveReport">保存报告</button>
+        <button class="btn ghost small" id="btnReanalyze">重新分析</button>
+        <button class="btn ghost small danger-text" id="btnDeleteCurrent">删除记录</button>
+      </div>
+
+      <p class="disclaimer">本结果基于你提供的文本做模式识别，不是心理诊断，不构成医疗或法律建议。如需专业帮助，请联系心理咨询师或医生。</p>
+    </section>
+
+    <!-- ============ 历史页 ============ -->
+    <section class="page" id="page-history">
+      <h2 class="page-title">分析历史</h2>
+      <div class="filter-bar">
+        <select id="filterScene" class="select">
+          <option value="">全部场景</option>
+          <option>恋爱</option><option>职场</option><option>家庭</option><option>朋友</option><option>其他</option>
+        </select>
+        <select id="filterRisk" class="select">
+          <option value="">全部风险</option>
+          <option value="低">低</option><option value="中">中</option><option value="高">高</option><option value="危机">危机</option>
+        </select>
+        <button class="text-btn" id="btnExport">导出</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+      <div class="empty-tip hidden" id="historyEmpty">暂无历史记录。保存过的报告会出现在这里。</div>
+    </section>
+
+    <!-- ============ 设置页 ============ -->
+    <section class="page" id="page-settings">
+      <h2 class="page-title">隐私与设置</h2>
+      <div class="card settings-card">
+        <div class="setting-row">
+          <div>
+            <div class="setting-name">保存分析记录</div>
+            <div class="setting-desc">保存在本浏览器，用于历史查看；关闭后新分析不留存</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="setSave" checked><span></span></label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-name">输入时脱敏提示</div>
+            <div class="setting-desc">检测手机号、身份证号、公司名等并提醒</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="setMask" checked><span></span></label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-name">AI 深度解读（Agnes AI）</div>
+            <div class="setting-desc">默认开启。聊天文本经本机服务发送至 Agnes AI 生成解读；风险分数与统计始终在本地计算。关闭后使用纯本地规则分析</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="setAi" checked><span></span></label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-name">用匿名数据改进产品</div>
+            <div class="setting-desc">默认关闭。本版本数据不出你的设备，此开关为占位设置</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="setImprove"><span></span></label>
+        </div>
+      </div>
+      <div class="card settings-card">
+        <div class="setting-row vertical">
+          <div>
+            <div class="setting-name">聊天记录隐私说明</div>
+            <div class="setting-desc">
+              · 消息条数、字数、风险分数等统计在本机浏览器完成，不上传。<br>
+              · 开启「AI 深度解读」时，聊天文本会经本机服务转发给 Agnes AI 生成解读，API 密钥仅保存在本机 .env 中。<br>
+              · 处理台云端图片识别仅在你主动选择并同意后上传截图。<br>
+              · 删除记录会同时清除本设备上的数据，不可恢复；分享前请先脱敏。<br>
+              · 出现自伤、暴力、威胁等内容时，会优先展示安全干预信息。
+            </div>
+          </div>
+        </div>
+        <div class="setting-row vertical">
+          <button class="btn danger-ghost small" id="btnWipeAll">删除全部本地数据</button>
+        </div>
+      </div>
+      <p class="disclaimer">情绪显微镜 V1.0 · 非诊断工具</p>
+    </section>
+
+  </main>
+
+  <!-- 底部导航 -->
+  <nav class="tabbar">
+    <button class="tabbar-item active" data-page="home">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3l9-8z"/></svg>
+      <span>分析</span>
+    </button>
+    <button class="tabbar-item" data-page="history">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M13 3a9 9 0 109 9h-2a7 7 0 11-7-7v3l4-4-4-4v3zm-1 5v5l4 3 .8-1.3L13 12.5V8h-1z"/></svg>
+      <span>历史</span>
+    </button>
+    <button class="tabbar-item" data-page="settings">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 8a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm0-7l1.4 2.3 2.7-.4.4 2.7L19 9l-1.2 2.4 1.2 2.4-2.5 1.4-.4 2.7-2.7-.4L12 22l-1.4-2.3-2.7.4-.4-2.7L5 14l1.2-2.4L5 9.2l2.5-1.4.4-2.7 2.7.4L12 3z"/></svg>
+      <span>设置</span>
+    </button>
+  </nav>
+
+  <!-- 分析加载层 -->
+  <div class="loading-overlay hidden" id="loadingOverlay">
+    <div class="loading-box">
+      <div class="lens">
+        <div class="lens-ring"></div>
+        <div class="lens-scan"></div>
+      </div>
+      <p class="loading-step" id="loadingStep">正在提取消息条数…</p>
+      <div class="loading-bar"><div class="loading-bar-fg" id="loadingBar"></div></div>
+      <p class="loading-extra hidden" id="loadingExtra">样本较大，请稍等</p>
+    </div>
+  </div>
+
+  <!-- 危机干预弹窗 -->
+  <div class="modal-mask hidden" id="crisisModal">
+    <div class="modal crisis-modal">
+      <div class="crisis-head">
+        <span class="crisis-icon">!</span>
+        <h3>先停一下，你的安全最重要</h3>
+      </div>
+      <p>你的记录中出现了与<b>自伤、暴力、威胁或性胁迫</b>相关的内容。常规分析已暂停。任何关系中的情绪问题，都不值得你用安全去交换。</p>
+      <div class="hotline-box">
+        <div class="hotline-row">
+          <div><b>12356</b><span>全国心理援助热线</span></div>
+          <button type="button" class="hotline-btn" id="btnCall12356">拨打</button>
+        </div>
+        <div class="hotline-row">
+          <div><b>110 / 120</b><span>正在遭遇暴力或生命危险</span></div>
+          <button type="button" class="hotline-btn" id="btnCall110120">拨打</button>
+        </div>
+      </div>
+      <ul class="crisis-tips">
+        <li>前往有人的、可上锁的安全地点，或联系一位信任的人陪你。</li>
+        <li>保留聊天截图、伤情照片、录音等证据，仅保存在安全设备中。</li>
+        <li>若担心即时冲突，不要发送对峙或摊牌类消息。</li>
+      </ul>
+      <div class="crisis-actions">
+        <button class="btn primary small" id="btnCrisisTrust">我要联系信任的人</button>
+        <button class="btn ghost small" id="btnCrisisSafe">我目前处于安全环境</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 通用确认弹窗 -->
+  <div class="modal-mask hidden" id="confirmModal">
+    <div class="modal small-modal">
+      <h3 id="confirmTitle">确认操作</h3>
+      <p id="confirmText"></p>
+      <div class="modal-actions">
+        <button class="btn ghost small" id="confirmCancel">取消</button>
+        <button class="btn danger-ghost small" id="confirmOk">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div class="toast hidden" id="toast"></div>
+</div>
+
+<script src="js/dictionaries.js"></script>
+<script src="js/parser.js?v=2"></script>
+<script src="js/analyzer.js?v=4"></script>
+<script src="js/storage.js?v=2"></script>
+<script src="js/app.js?v=5"></script>
+</body>
+</html>
